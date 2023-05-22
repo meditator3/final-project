@@ -66,29 +66,50 @@ STATES_CAPITALS = {
     'West Virginia' : 'Charleston',
     'Wisconsin' : 'Madison',
     'Wyoming' : 'Cheyenne',
+    'MAS_ave' : 'Boston'
 }
 
 
 def capital_of_Idaho():
-    # Your code here
-    pass
+    print(STATES_CAPITALS['Idaho'])
+
+
+capital_of_Idaho()
 
 def all_states():
-    # Your code here
-    pass
+    for state in STATES_CAPITALS.keys():
+        print(state, end=", ")
+    print("\n")
+
+
+all_states()
+
 
 def all_capitals():
-    # Your code here
-    pass
+    for capital in STATES_CAPITALS.values():
+        print(capital, end=", ")
+    print("\n")
+
+
+all_capitals()
+
 
 def states_capitals_string():
-    # Your code here
-    pass
+    for cap_state in dict(STATES_CAPITALS):
+        capital = STATES_CAPITALS[cap_state] #clever way to select value from a for loop
+        print(f"{cap_state} -> {capital}, ", end=" ")
+    print("\n")
+
+states_capitals_string()
 
 
 
 def get_state(capital):
-    pass
+    for state in STATES_CAPITALS: #GOTCHA: because this is a for loop - it will check duplicates as well!
+        if capital in STATES_CAPITALS[state] and capital!="":
+            #print(f"the capital {capital} is from the state of {state}")
+            return state
+    raise KeyError("Capital not found!")
 
 
 
@@ -116,3 +137,4 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
+
